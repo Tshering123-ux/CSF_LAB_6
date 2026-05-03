@@ -1,0 +1,266 @@
+# # This is for a Linear Search Program #
+
+# # First, lets create a list #
+# numbers = [10, 20, 30, 40, 50, 60]
+
+# # Then, we Display the list #
+# print("The List is:", numbers)
+
+# # Take user input
+# target = int(input("Enter element to search: "))
+
+# # Then we use Linear search #
+# found = False
+# for i in range(len(numbers)):
+#     if numbers[i] == target:
+#         print("The Element found at position is:", i + 1)
+#         found = True
+#         break
+
+# # If element is not found
+# if not found:
+#     print("Element not found")
+
+# Since this is a Indexed (Block) Search Program, we need to import math to calculate block size and block search #
+
+# import math
+
+# # Create a given sorted list #
+# numbers = [5, 10, 15, 20, 25, 30, 35, 40]
+# print("The List is:", numbers)
+
+# # Now we gather input from user #
+# target = int(input("Enter any element: "))
+
+# # Firstly we determine the block size #
+# n = len(numbers)
+# block_size = int(math.sqrt(n))
+
+# # Secondly, we find the block where an element may exist #
+# start = 0
+# end = block_size
+
+# while start < n and numbers[min(end, n) - 1] < target:
+#     start = end
+#     end += block_size
+
+# # Next, we simply perform linear search within the block #
+# found = False
+# for i in range(start, min(end, n)):
+#     if numbers[i] == target:
+#         print("Element found")
+#         found = True
+#         break
+
+# if not found:
+#     print("Element not found")
+
+# This is for selection Sort Program #
+
+# Lets create a given list #
+# numbers = [64, 25, 12, 22, 11]
+
+# # Then, display original list
+# print("The Original List is:", numbers)
+
+# # Now we perform selection sort #
+# n = len(numbers)
+
+# for i in range(n):
+#     min_index = i
+    
+#     for j in range(i + 1, n):
+#         if numbers[j] < numbers[min_index]:
+#             min_index = j
+    
+#     # Swap the found minimum element with the first element #
+#     numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
+
+# # Finally, we display sorted list #
+# print("Sorted List:", numbers)
+
+# This is for selection Sort with Trace (Pass-wise Output) #
+
+# numbers = [64, 25, 12, 22, 11]
+
+# n = len(numbers)
+
+# for i in range(n):
+#     min_index = i
+
+#     for j in range(i + 1, n):
+#         if numbers[j] < numbers[min_index]:
+#             min_index = j
+
+#     # Next perform Swap just like we did in task 3 #
+#     numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
+
+#     # And finally display after each pass #
+#     print(f"Pass {i + 1}:", numbers)
+
+# Factorial using Iterative and Recursive methods
+
+# This is using Iterative factorial method #
+# def factorial_iterative(n):
+#     result = 1
+#     for i in range(1, n + 1):
+#         result *= i
+#     return result
+
+# # This is for using Recursive factorial method #
+# def factorial_recursive(n):
+#     if n == 0 or n == 1:
+#         return 1
+#     return n * factorial_recursive(n - 1)
+
+# # Enter any user Input to check #
+# num = int(input("Enter number: "))
+
+# # Output
+# print("The Iterative factorial is =", factorial_iterative(num))
+# print("The Recursive factorial is =", factorial_recursive(num))
+
+# This is a Fibonacci Comparison between: Iterative vs Recursive #
+
+# This is for Iterative Fibonacci sequence #
+# def fib_iterative(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         a, b = b, a + b
+#     return a
+
+# # Next, This is for Recursive Fibonacci sequence with call counter #
+# call_count = 0
+
+# def fib_recursive(n):
+#     global call_count
+#     call_count += 1
+    
+#     if n <= 1:
+#         return n
+#     return fib_recursive(n - 1) + fib_recursive(n - 2)
+
+# # Enter any user Input #
+# num = int(input("Enter number: "))
+
+# # This is the Iterative result #
+# iter_result = fib_iterative(num)
+
+# # This is the Recursive result #
+# call_count = 0
+# rec_result = fib_recursive(num)
+
+# # Output
+# print("The Iterative Fibonacci is=", iter_result)
+# print("The Recursive Fibonacci is =", rec_result)
+# print("The Number of recursive calls is =", call_count)
+
+# # Efficiency comparison
+# print("\nEfficiency Comparison:")
+# print("Overall, Iterative method is faster and uses less memory.")
+# print("While Recursive method is slower due to repeated calculations.")
+
+# This program is for implementing Stack Implementation and Selection Sort #
+
+# Create a Stack class #
+# class Stack:
+#     def __init__(self):
+#         self.items = []
+
+#     def push(self, value):
+#         self.items.append(value)
+
+#     def pop(self):
+#         if not self.is_empty():
+#             return self.items.pop()
+#         return "The Stack is empty"
+
+#     def is_empty(self):
+#         return len(self.items) == 0
+
+#     def display(self):
+#         return self.items
+
+# # Next, we perform and define Selection Sort function #
+# def selection_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         min_index = i
+#         for j in range(i + 1, n):
+#             if arr[j] < arr[min_index]:
+#                 min_index = j
+#         arr[i], arr[min_index] = arr[min_index], arr[i]
+#     return arr
+
+# # Now using real values we implement the main Program #
+# stack = Stack()
+
+# # Push elements
+# stack.push(22)
+# stack.push(78)
+# stack.push(89)
+# stack.push(105)
+# stack.push(15)
+
+# print("The Stack elements are:", stack.display())
+
+# # Then, Convert stack to list #
+# data = stack.display().copy()
+
+# # And finally Sort the list #
+# sorted_data = selection_sort(data)
+
+# print("The final Sorted List is:", sorted_data)
+
+# This is for Queue Implementation + Linear Search #
+
+# Create Queue class #
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, value):
+        self.items.append(value)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        return "Queue is empty"
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def display(self):
+        return self.items
+
+
+# Create Linear Search function #
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i + 1   # position (1-based)
+    return -1
+
+
+# Next we start the Main Program and enter input #
+queue = Queue()
+
+# Insert elements
+queue.enqueue(5)
+queue.enqueue(10)
+queue.enqueue(15)
+queue.enqueue(20)
+queue.enqueue(25)
+
+print("The Queue elements are:", queue.display())
+
+# Input element to search #
+element = int(input("Enter element to search: "))
+
+# Perform Search #
+position = linear_search(queue.display(), element)
+
+if position != -1:
+    print("Element found at position", position)
+else:
+    print("Element not found")
